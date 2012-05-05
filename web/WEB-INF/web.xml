@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>EmailForm</servlet-name>
+        <servlet-class>com.bensmann.web.emailform.EmailForm</servlet-class>
+        <init-param>
+            <param-name>subject</param-name>
+            <param-value>Aktuelle Umfrage</param-value>
+        </init-param>
+        <init-param>
+            <param-name>sender</param-name>
+            <param-value>bvk@bvk.de</param-value>
+        </init-param>
+        <init-param>
+            <param-name>recipient</param-name>
+            <param-value>info@medienhof.de</param-value>
+        </init-param>
+        <init-param>
+            <param-name>smtphost</param-name>
+            <param-value>localhost</param-value>
+        </init-param>
+        <init-param>
+            <param-name>smtpport</param-name>
+            <param-value>25</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forward_ok</param-name>
+            <param-value>http://www.bvk.de/1Ci/dmerce?qTemplate=mybvk,questionary,questionary_okay</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forward_error</param-name>
+            <param-value>http://www.bvk.de/1Ci/dmerce?qTemplate=mybvk,questionary,questionary_error</param-value>
+        </init-param>
+        <init-param>
+            <param-name>email_header</param-name>
+            <param-value>Sehr geehrte Damen und Herren,&lt;br/&gt;&lt;br/&gt;</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        </servlet>
+    <servlet-mapping>
+        <servlet-name>EmailForm</servlet-name>
+        <url-pattern>/email.do</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        </welcome-file-list>
+    </web-app>
